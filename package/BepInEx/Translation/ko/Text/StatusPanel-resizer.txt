@@ -1,0 +1,2 @@
+Canvas/Limb status view/blood information=AutoResize(False);ChangeFontSize(18)
+Canvas/Limb status view/limb damage source stats=AutoResize(False);ChangeFontSize(18)

@@ -1,0 +1,25 @@
+integrity=체력
+blood amount=혈액량
+blood pressure=혈압
+internal temp.=체온
+dead=사망
+bleeding=출혈
+internal bleeding=내출혈
+punctured lungs=폐 손상
+numb=감각 상실
+dismembered=절단됨
+heart stopped=심정지
+brain-dead=뇌사
+brain damage=뇌 손상
+broken bone=골절
+r:"(?i)^([0-9]+|\{\{[A-Z]\}\}) limbs selected$"=선택한 부위 $1개
+r:"(?i)^([0-9]+|\{\{[A-Z]\}\}) bruises?$"=멍 $1곳
+r:"(?i)^([0-9]+|\{\{[A-Z]\}\}) stab wounds?$"=자상 $1곳
+r:"(?i)^([0-9]+|\{\{[A-Z]\}\}) gunshot wounds?$"=총상 $1곳
+r:"(?i)^([0-9]+|\{\{[A-Z]\}\}) broken bones?$"=골절 $1곳
+r:"(?i)^([0-9.,]+|\{\{[A-Z]\}\})% burnt$"=화상 $1%
+r:"(?i)^([0-9.,]+|\{\{[A-Z]\}\})% rotted$"=부패 $1%
+r:"(?i)^([0-9.,]+|\{\{[A-Z]\}\})% skin damage$"=피부 손상 $1%
+r:"(?is)^integrity\s*((?:[0-9.,+-]+|\{\{[A-Z]\}\})%)\s*blood amount\s*((?:[0-9.,+-]+|\{\{[A-Z]\}\})%)\s*blood pressure\s*((?:[0-9.,+-]+|\{\{[A-Z]\}\})%)\s*internal temp\.\s*([\s\S]+?)\s*$"=체력\n$1\n\n혈액량\n$2\n\n혈압\n$3\n\n체온\n$4
+sr:"(?is)^(?\=[\s\S]*(?:limbs selected|integrity|blood amount|blood pressure|internal temp\.|dead|bleeding|punctured lungs|numb|dismembered|heart stopped|brain damage|bruises?|stab wounds?|gunshot wounds?|broken bones?|% burnt|% rotted|% skin damage))(?<line>[^\r\n<>]+)(?<break_i>[\r\n]+)(?<rest>[\s\S]+)$"="${line}${break_i}${rest}"
+sr:"(?is)^<b>(?<selected>[^\r\n<>]*limbs selected)</b>(?<sep_i>[\r\n]*)<color(?<color_i>[^>]*)>(?<states>[\s\S]*?)</color>(?<stats>[\s\S]*)$"="<b>${selected}</b>${sep_i}<color${color_i}>${states}</color>${stats}"
